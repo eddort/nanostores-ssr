@@ -4,5 +4,11 @@ import { onRoute } from "../nanostores";
 export const myFirstStore = atom({});
 
 onRoute(myFirstStore, "/", async () => {
-  return { test: 1 };
+  return { firstStore: 1 };
+});
+
+export const mySecondStore = atom({});
+
+onRoute(mySecondStore, "/", async () => {
+  return { secondStore: 2 };
 });

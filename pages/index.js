@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useStore } from "../nanostores";
-import { myFirstStore } from "../stores";
+import { myFirstStore, mySecondStore } from "../stores";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const store = useStore(myFirstStore);
-  console.log(store, "???");
+  const firstStore = useStore(myFirstStore);
+  const secondStore = useStore(mySecondStore);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,9 +18,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js! Create Next App {JSON.stringify(store)}</a>
+          Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-
+      <h2>{JSON.stringify(firstStore)}</h2>
+      <h2>{JSON.stringify(secondStore)}</h2>
         <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>

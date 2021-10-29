@@ -4,7 +4,6 @@ import { targetTask, Context, getInstances, router } from "../nanostores";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, props }) {
-  console.log(pageProps, '?>??', props)
   return (
     <Context.Provider value={props.instances}>
       <Component {...pageProps} />
