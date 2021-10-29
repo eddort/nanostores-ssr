@@ -15,9 +15,7 @@ MyApp.getInitialProps = async (appContext) => {
   const instances = await getInstances(taskId);
   return {
     ...appProps,
-    ...{
-      props: { instances },
-    },
+    props: { instances },
   };
 };
 ```
