@@ -15,7 +15,7 @@ export const Context = createContext();
 export function useStore(store, opts = {}) {
   let [, forceRender] = useState({});
 
-  const taskId = useContext(Context);
+  const instances = useContext(Context);
 
   if (process.env.NODE_ENV !== "production") {
     if (typeof store === "function") {
@@ -38,9 +38,9 @@ export function useStore(store, opts = {}) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [store, "" + opts.keys]);
-  console.log(isServer, taskId, store.instances);
-  if (isServer && taskId && store.instances) {
-    return store.instances.get(taskId);
+  console.log(instances, '???????');
+  if (instances && instances.get) {
+    return instances.get(store);
   }
 
   return store.get();

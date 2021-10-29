@@ -1,5 +1,8 @@
 import { atom } from "nanostores";
+import { onRoute } from "../nanostores";
 
 export const myFirstStore = atom({});
 
-myFirstStore.instances = new Map();
+onRoute(myFirstStore, "/", async () => {
+  return { test: 1 };
+});
