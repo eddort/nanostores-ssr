@@ -1948,6 +1948,11 @@ nanoid@^3.1.23:
   resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.1.30.tgz#63f93cc548d2a113dc5dfbc63bfa09e2b9b64362"
   integrity sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==
 
+nanostores@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.npmjs.org/nanostores/-/nanostores-0.5.4.tgz#ce9f9c02467b01cb3db988db07afa30ff17c8ff6"
+  integrity sha512-EazPO2qaM2e5BwVm47n26C23Aw5+qVIkCaTVFgGcL6tdV0dnPqpmmVQay8EaTrFTTRkHzoJb2K0xFK0yjeBjBQ==
+
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
