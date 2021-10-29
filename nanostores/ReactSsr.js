@@ -40,7 +40,8 @@ export function useStore(store, opts = {}) {
   }, [store, "" + opts.keys]);
 
   if (instances && store.instanceId) {
-    return instances[store.instanceId];
+    // todo hidrate (delete instances[store.instanceId] after usage)
+    store.value = instances[store.instanceId];
   }
 
   return store.get();
