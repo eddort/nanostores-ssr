@@ -38,9 +38,9 @@ export function useStore(store, opts = {}) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [store, "" + opts.keys]);
-  console.log(instances, '???????');
-  if (instances && instances.get) {
-    return instances.get(store);
+
+  if (instances && store.instanceId) {
+    return instances[store.instanceId];
   }
 
   return store.get();

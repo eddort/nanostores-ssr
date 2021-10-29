@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import App from "next/app";
 import { targetTask, Context, getInstances, router } from "../nanostores";
 import "../styles/globals.css";

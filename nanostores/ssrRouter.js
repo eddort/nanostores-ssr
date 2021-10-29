@@ -1,4 +1,5 @@
 import { atom } from "nanostores";
+import { incId } from "./incId";
 import { createTaskManager } from "./taskManager";
 
 const get_or_create = (dest, key, getPayload) => {
@@ -16,9 +17,9 @@ export const router = {
 };
 
 export const onRoute = (store, route, cb) => {
+  if (!store.instanceId) store.instanceId = incId();
   router.queue.listen((messages) => {
     const target = messages[messages.length - 1];
-    // todo regexp match
     if (route !== target.route) return;
     const taskManager = get_or_create(
       router.tasks,
@@ -29,9 +30,9 @@ export const onRoute = (store, route, cb) => {
       const instance = get_or_create(
         router.instances,
         target.taskId,
-        () => new Map()
+        () => ({})
       );
-      instance.set(store, res);
+      instance[store.instanceId] = res;
     });
     taskManager.task(promise);
   });
