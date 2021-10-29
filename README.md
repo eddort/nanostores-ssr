@@ -6,6 +6,7 @@ This is a prototype.
 
 1. Next.js integration
 
+https://github.com/Eddort/nanostores-ssr/blob/main/pages/_app.js#L13
 ```js
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
@@ -26,6 +27,7 @@ MyApp.getInitialProps = async (appContext) => {
 
 2. SSR router and `onRoute` handler
 
+https://github.com/Eddort/nanostores-ssr/blob/main/nanostores/ssrRouter.js
 ```js
 onRoute(mySecondStore, "/", async () => {
   return { secondStore: 2 };
@@ -48,6 +50,7 @@ function MyApp({ Component, pageProps, props }) {
 
 5. and retrieve this data using the `useStore` helper.
 
+https://github.com/Eddort/nanostores-ssr/blob/main/nanostores/ReactSsr.js
 ```js
 if (instances && store.instanceId) {
   return instances[store.instanceId];
