@@ -16,7 +16,7 @@ export const router = {
   },
   async load(route, params) {
     const taskId = {};
-    router.open("/", params, taskId);
+    router.open(route, params, taskId);
     return getInstances(taskId);
   },
   tasks: new Map(),

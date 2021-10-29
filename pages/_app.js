@@ -13,7 +13,10 @@ function MyApp({ Component, pageProps, props }) {
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
 
-  const instances = await router.load(appContext.pathname, appContext.query);
+  const instances = await router.load(
+    appContext.ctx.pathname,
+    appContext.ctx.query
+  );
 
   return {
     ...appProps,

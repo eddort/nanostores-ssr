@@ -7,4 +7,4 @@ const parseString = () => {
   state = JSON.parse(appCustomPropsString).props.props.instances;
   return state;
 };
-export const nextJsHydrate = (instanceId) => parseString()[instanceId];
+export const nextJsHydrate = (instanceId) => parseString() && parseString()[instanceId];
