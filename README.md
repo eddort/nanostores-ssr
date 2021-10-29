@@ -10,20 +10,17 @@ https://github.com/Eddort/nanostores-ssr/blob/main/pages/_app.js#L13
 ```js
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
-  const taskId = {};
-  router.open("/", taskId);
-  const instances = await getInstances(taskId);
+
+  const instances = await router.load("/");
+
   return {
     ...appProps,
-    ...{
-      props: { instances },
-    },
+    props: { instances },
   };
 };
 ```
 
-- `router.open("/", taskId);` — open some route
-- `const instances = await getInstances(taskId);` — collect data from stores
+- `router.load("/", params);` — collect data from stores
 
 2. SSR router and `ssr` handler
 
@@ -34,7 +31,7 @@ ssr(mySecondStore, "/", async () => {
 }, hydrateMethod);
 ```
 
-3. after `router.open` is called will be called `ssr`
+3. after `router.load` is called will be called `ssr`
 
 4. we transmit the data to the Provider
 

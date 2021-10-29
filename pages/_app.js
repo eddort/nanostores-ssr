@@ -12,14 +12,12 @@ function MyApp({ Component, pageProps, props }) {
 
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
-  const taskId = {};
-  router.open("/", taskId);
-  const instances = await getInstances(taskId);
+
+  const instances = await router.load("/");
+
   return {
     ...appProps,
-    ...{
-      props: { instances },
-    },
+    props: { instances },
   };
 };
 

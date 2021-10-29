@@ -9,9 +9,15 @@ const get_or_create = (dest, key, getPayload) => {
 };
 
 export const router = {
+  // todo refactor to EventEmmiter
   queue: atom([]),
-  open(route, taskId) {
+  open(route, params, taskId) {
     this.queue.set([...this.queue.get(), { route, taskId }]);
+  },
+  async load(route, params) {
+    const taskId = {};
+    router.open("/", params, taskId);
+    return getInstances(taskId);
   },
   tasks: new Map(),
   instances: new Map(),
@@ -21,7 +27,7 @@ export const ssr = (store, route, cb, hydrate) => {
   if (!store.instanceId) store.instanceId = incId();
 
   if (isBrowser) {
-    return store.value = hydrate(store.instanceId)
+    return (store.value = hydrate(store.instanceId));
   }
 
   router.queue.listen((messages) => {
