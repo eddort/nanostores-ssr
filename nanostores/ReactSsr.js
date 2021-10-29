@@ -39,9 +39,8 @@ export function useStore(store, opts = {}) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [store, "" + opts.keys]);
 
-  if (instances && store.instanceId) {
-    // todo hidrate (delete instances[store.instanceId] after usage)
-    store.value = instances[store.instanceId];
+  if (isServer && instances && store.instanceId) {
+    return instances[store.instanceId];
   }
 
   return store.get();

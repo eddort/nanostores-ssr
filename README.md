@@ -25,16 +25,16 @@ MyApp.getInitialProps = async (appContext) => {
 - `router.open("/", taskId);` — open some route
 - `const instances = await getInstances(taskId);` — collect data from stores
 
-2. SSR router and `onRoute` handler
+2. SSR router and `ssr` handler
 
 https://github.com/Eddort/nanostores-ssr/blob/main/nanostores/ssrRouter.js
 ```js
-onRoute(mySecondStore, "/", async () => {
+ssr(mySecondStore, "/", async () => {
   return { secondStore: 2 };
-});
+}, hydrateMethod);
 ```
 
-3. after `router.open` is called will be called `onRoute`
+3. after `router.open` is called will be called `ssr`
 
 4. we transmit the data to the Provider
 

@@ -20,8 +20,8 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-      <h2>{JSON.stringify(firstStore)}</h2>
-      <h2>{JSON.stringify(secondStore)}</h2>
+        <h2>{JSON.stringify(firstStore)}</h2>
+        <h2>{JSON.stringify(secondStore)}</h2>
         <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
@@ -73,14 +73,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export async function getStaticProps() {
-//   const taskId = {};
-//   router.open("/", taskId);
-//   const instances = await getInstances(taskId);
-//   // createInstance
-//   // onROute как связать
-//   return {
-//     props: { instances },
-//   };
-// }

@@ -1,6 +1,7 @@
 import { atom } from "nanostores";
 import { incId } from "./incId";
 import { createTaskManager } from "./taskManager";
+const isBrowser = typeof window !== "undefined";
 
 const get_or_create = (dest, key, getPayload) => {
   if (!dest.has(key)) dest.set(key, getPayload());
@@ -16,8 +17,13 @@ export const router = {
   instances: new Map(),
 };
 
-export const onRoute = (store, route, cb) => {
+export const ssr = (store, route, cb, hydrate) => {
   if (!store.instanceId) store.instanceId = incId();
+
+  if (isBrowser) {
+    return store.value = hydrate(store.instanceId)
+  }
+
   router.queue.listen((messages) => {
     const target = messages[messages.length - 1];
     if (route !== target.route) return;

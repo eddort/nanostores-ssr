@@ -1,14 +1,24 @@
 import { atom } from "nanostores";
-import { onRoute } from "../nanostores";
+import { nextJsHydrate, ssr } from "../nanostores";
 
 export const myFirstStore = atom({});
 
-onRoute(myFirstStore, "/", async () => {
-  return { firstStore: 1 };
-});
+ssr(
+  myFirstStore,
+  "/",
+  async () => {
+    return { firstStore: 1 };
+  },
+  nextJsHydrate
+);
 
 export const mySecondStore = atom({});
 
-onRoute(mySecondStore, "/", async () => {
-  return { secondStore: 2 };
-});
+ssr(
+  mySecondStore,
+  "/",
+  async () => {
+    return { secondStore: 2 };
+  },
+  nextJsHydrate
+);
