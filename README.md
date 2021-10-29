@@ -11,7 +11,7 @@ https://github.com/Eddort/nanostores-ssr/blob/main/pages/_app.js#L13
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
 
-  const instances = await router.load("/");
+  const instances = await router.load(appContext.pathname, appContext.query);
 
   return {
     ...appProps,

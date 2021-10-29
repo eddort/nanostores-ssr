@@ -18,7 +18,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Index page
+          Welcome to Test page
         </h1>
         <h2>{JSON.stringify(firstStore)}</h2>
         <h2>{JSON.stringify(secondStore)}</h2>
