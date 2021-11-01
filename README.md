@@ -64,3 +64,8 @@ if (instances && store.instanceId) {
   return instances[store.instanceId];
 }
 ```
+
+TODOS
+- parse params
+- client routing
+- research how to connect to another frameworks
